@@ -4,6 +4,19 @@ const config = require('../Config');
 
 //Modal used for admin login/data upload
 
+const getDefaultUserData = (userID) => {
+  const totals = 
+  {
+    id: userID,
+    dailyHoney: 5,
+    dailyPoo: 3,
+    totalHoney: 0,
+    totalPoo: 0
+  };
+
+  return totals;
+}
+
 const getTotals = async (userID) => {
   var userRef = Firebase.database().ref(userID);
   var userData = await userRef.once('value');
@@ -11,19 +24,6 @@ const getTotals = async (userID) => {
 };
  
 const DataAccess = {
-   getDefaultUserData: (userID) => {
-      const totals = 
-      {
-        id: userID,
-        dailyHoney: 5,
-        dailyPoo: 3,
-        totalHoney: 0,
-        totalPoo: 0
-      };
-
-      return totals;
-   },
-
     GetUserTotals: (userID) => {
       if (!Firebase.apps.length)
         Firebase.initializeApp(config);
