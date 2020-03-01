@@ -16,3 +16,7 @@
 .pooh {
   color: tomato;
 }
+
+.container h2 {
+  text-align: center;
+}
