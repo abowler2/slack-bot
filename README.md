@@ -7,7 +7,7 @@ Team Members:
 * Chris - Frontend
 * Rebecca - Backend
 * Luis - Frontend
-* April - Project Manager
+* April - Project/Git Manager
 * James - Backend
 * Thomas - Database
 * Dara - Design
