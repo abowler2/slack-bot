@@ -1,5 +1,3 @@
-# Poo-bot
-IESD Feb 2020 Hackday
 
 This slack bot is a fun/silly way to reward or punish team members! This bot is aimed at building/destroying relationships within teams.
 
@@ -90,3 +88,18 @@ Once you’ve got your bot developed to your liking, it is ready to be deployed 
 
 You can find full instructions for building a bot app with this repository at https://medium.com/slack-developer-blog/easy-peasy-bots-getting-started-96b65e6049bf#.4ay2fjf32
 
+=======
+# Pooh bot
+### IESD Feb 2020 Hackday / Team: S.O.B. (Silly Ol' Bears)
+
+Team Members:
+
+* Robin - Database
+* Chris - Frontend
+* Rebecca - Backend
+* Luis - Frontend
+* April - Project/Git Manager
+* James - Backend
+* Thomas - Database
+* Dara - Design
+* Stephanie - emotional support bear 
