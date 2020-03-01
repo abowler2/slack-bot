@@ -1,3 +1,34 @@
+# Poo-bot
+IESD Feb 2020 Hackday
+
+This slack bot is a fun/silly way to reward or punish team members! This bot is aimed at building/destroying relationships within teams.
+
+## Installation
+/poohBot @name
+
+## Usage
+/poohBot @name :honey - sends honey to user
+/poohBot @name :poo - sends poo to user
+
+
+## Features
+
+Poo-bot shows leaderboard of top 3 'sweetest users' with the most honey and a leaderboard the top 3 'crappiest users' with the most poo!
+
+
+## Credits
+Authors:
+* slickchris95
+* rurru
+* velazquezLuis
+* abowler2
+* SirHexxus
+* PhillipLaub
+* thnlsn
+
+
+## Lincense
+=======
 # easy-peasy-bot
 
 ## The story of a (Slack)bot
@@ -58,3 +89,4 @@ Once you’ve got your bot developed to your liking, it is ready to be deployed 
 # Using Botkit for Bot Apps
 
 You can find full instructions for building a bot app with this repository at https://medium.com/slack-developer-blog/easy-peasy-bots-getting-started-96b65e6049bf#.4ay2fjf32
+
