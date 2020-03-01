@@ -1,41 +1,32 @@
 {
-  "name": "reporterbot",
+  "name": "pooh-bot",
   "version": "1.0.0",
-  "description": "A slack bot that gets reports on demand",
-  "main": "./dist/index.js",
+  "description": "The awesomest bot evar.",
+  "main": "index.js",
   "scripts": {
-    "dev": "babel-node src/index.js",
-    "prod": "NODE_ENV=production node dist/index.js",
-    "build": "rm -rf ./dist/ && babel src --out-dir dist/ --copy-files",
-    "lint": "eslint src",
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/calvinkarundu/reporterbot.git"
+    "url": "git+https://github.com/abowler2/slack-bot.git"
   },
-  "author": "Calvin Karundu <calvin.mwenda@gmail.com>",
-  "license": "ISC",
+  "keywords": [
+    "slack",
+    "bot"
+  ],
+  "author": "D.E. Goodman-Wilson",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/calvinkarundu/reporterbot/issues"
+    "url": "https://github.com/abowler2/slack-bot/issues"
   },
-  "homepage": "https://github.com/calvinkarundu/reporterbot#readme",
+  "homepage": "https://github.com/abowler2/slack-bot#readme",
+  "engines": {
+    "node": "5.1.1"
+  },
   "dependencies": {
-    "babel-polyfill": "^6.26.0",
-    "body-parser": "^1.18.2",
-    "config": "^1.28.1",
-    "csv-write-stream": "^2.0.0",
-    "express": "^4.16.2",
-    "mkdirp": "^0.5.1",
-    "morgan": "^1.9.0",
-    "request": "^2.83.0",
-    "tracer": "^0.8.11"
-  },
-  "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
-    "eslint": "^4.11.0",
-    "eslint-config-airbnb-base": "^12.1.0",
-    "eslint-plugin-import": "^2.8.0"
+    "botkit": "0.2.2",
+    "botkit-storage-mongo": "^1.0.2",
+    "mongodb": "^1.4.39"
   }
 }
