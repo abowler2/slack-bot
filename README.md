@@ -1,5 +1,5 @@
 # Pooh bot
-### IESD Feb 2020 Hackday / Team: S.O.B. (Silly Old Bears)
+### IESD Feb 2020 Hackday / Team: S.O.B. (Silly Ol' Bears)
 
 Team Members:
 
