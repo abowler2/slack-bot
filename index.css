@@ -5,6 +5,23 @@
 #navTitle, .navComponent {
   color: #FAD749;
 }
+
 #image {
   width: 100px;
+}
+
+.hero-banner {
+  background-image: url(https://res.cloudinary.com/slickchris33/image/upload/v1583027102/bear.jpg)
+  background-position: center;
+  /* background-repeat: no-repeat;
+  background-size: cover;
+  position: relative; */
+}
+
+.pooh {
+  color: tomato;
+}
+
+.container h2 {
+  text-align: center;
 }
