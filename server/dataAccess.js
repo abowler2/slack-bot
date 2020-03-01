@@ -1,11 +1,17 @@
 
-import Firebase from 'firebase';
-import config from '../Config';
+const Firebase = require('firebase');
+const config = require('../Config');
 
 //Modal used for admin login/data upload
+
+const getTotals = async (userID) => {
+  var userRef = Firebase.database().ref(userID);
+  var userData = await userRef.once('value');
+  return userData.val();
+};
  
-const DataAccess = () => {
-   const getDefaultUserData = (userID) => {
+const DataAccess = {
+   getDefaultUserData: (userID) => {
       const totals = 
       {
         id: userID,
@@ -16,15 +22,9 @@ const DataAccess = () => {
       };
 
       return totals;
-    }
+   },
 
-    const getTotals = async (userID) => {
-      var userRef = Firebase.database().ref(userID);
-      var userData = await userRef.once('value');
-      return userData.val();
-    }
-
-    const GetUserTotals = (userID) => {
+    GetUserTotals: (userID) => {
       if (!Firebase.apps.length)
         Firebase.initializeApp(config);
         getTotals(userID).then(totals => {
@@ -32,9 +32,9 @@ const DataAccess = () => {
 
           return userData;
         });    
-    }
+    },
 
-    const UpdateDailyHoney = (userID) => {
+    UpdateDailyHoney: (userID) => {
       if (!Firebase.apps.length)
         Firebase.initializeApp(config);
 
@@ -52,9 +52,9 @@ const DataAccess = () => {
             totalPoo: totals.totalPoo
            });
         }});
-    }
+    },
     
-    const UpdateDailyPoo = (userID) => {
+    UpdateDailyPoo: (userID) => {
       if (!Firebase.apps.length)
         Firebase.initializeApp(config);
 
@@ -71,9 +71,9 @@ const DataAccess = () => {
             totalPoo: totals.totalPoo
            });
       }});      
-    }
+    },
     
-    const UpdateTotalHoney = (userID) => {
+    UpdateTotalHoney: (userID) => {
       if (!Firebase.apps.length)
         Firebase.initializeApp(config);
 
@@ -89,9 +89,9 @@ const DataAccess = () => {
           totalPoo: totals.totalPoo
           });
       });    
-    }
+    },
     
-    const UpdateTotalPoo = (userID) => {
+    UpdateTotalPoo: (userID) => {
       if (!Firebase.apps.length)
         Firebase.initializeApp(config);     
         
@@ -110,4 +110,5 @@ const DataAccess = () => {
     }
 }
 
-export default DataAccess;
+// export default DataAccess;
+module.exports = DataAccess;
