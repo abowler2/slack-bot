@@ -44,12 +44,12 @@ if (process.env.MONGOLAB_URI) {
 
 if (process.env.TOKEN || process.env.SLACK_TOKEN) {
     //Treat this as a custom integration
-    var customIntegration = require('./lib/custom_integrations');
+    var customIntegration = require('./server/lib/custom_integrations');
     var token = (process.env.TOKEN) ? process.env.TOKEN : process.env.SLACK_TOKEN;
     var controller = customIntegration.configure(token, config, onInstallation);
 } else if (process.env.CLIENT_ID && process.env.CLIENT_SECRET && process.env.PORT) {
     //Treat this as an app
-    var app = require('./lib/apps');
+    var app = require('./server/lib/apps');
     var controller = app.configure(process.env.PORT, process.env.CLIENT_ID, process.env.CLIENT_SECRET, config, onInstallation);
 } else {
     console.log('Error: If this is a custom integration, please specify TOKEN in the environment. If this is an app, please specify CLIENTID, CLIENTSECRET, and PORT in the environment');
@@ -85,10 +85,47 @@ controller.on('bot_channel_join', function (bot, message) {
     bot.reply(message, "I'm here!")
 });
 
-controller.hears('hello', 'direct_message', function (bot, message) {
-    bot.reply(message, 'Hello!');
+// controller.on('message_received', function(bot, message) {
+//     // console.log(message);
+//     bot.reply(message, `I heard ${message.content}`);
+// })
+
+controller.hears('send (.*)', ['direct_mention', 'mention', 'direct_message'], function(bot, message) {
+    let item = message.match[1].split(" ");
+    console.log(item);
+    if ((item[1].indexOf("<@") === 0) && (item[1].lastIndexOf(">") === (item[1].length - 1))) {
+        switch (item[0]) {
+            case "honey":
+            case ":honey_pot:":
+                bot.reply(message, `Pooh sent :honey_pot: to ${item[1]}`);
+                break;
+            case "poo":
+            case "poop":
+            case ":poop:":
+                bot.reply(message, `Pooh sent :poop: to ${item[1]}`);
+                break;
+            default:
+                bot.reply(message, `Pooh doesn't know how to send ${item[0]} to ${item[1]}`);
+        }
+    } else {
+        bot.reply(message, "Pooh doesn't know what you want");
+    }
+    
+    // bot.reply(message, `Pooh Bot sent ${item.join(" ")}`);
+    
 });
 
+controller.hears(['hello', 'hi', 'greetings'], ['direct_mention', 'mention', 'direct_message'], function(bot,message) {
+    bot.reply(message, 'I AM POOHBOT! HEAR ME ROAR!!!');
+});
+
+controller.hears('.*', ['direct_mention', 'mention', 'direct_message'], function(bot,message) {
+    bot.reply(message, 'I AM POOHBOT! HEAR ME ROAR!!!');
+});
+
+controller.hears([':honey_pot:', 'honey'], ['direct_mention', 'mention', 'direct_message'], function(bot,message) {
+    bot.reply(message, 'I AM POOHBOT! HEAR ME ROAR!!!');
+});
 
 /**
  * AN example of what could be:
