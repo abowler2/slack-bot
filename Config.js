@@ -9,4 +9,5 @@ const config = {
     measurementId: "G-94XB03QDVD"
   };
 
-  export default config;
+  // export default config;
+  module.exports = config;

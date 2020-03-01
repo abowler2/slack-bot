@@ -1,3 +1,5 @@
+const { UpdateDailyHoney, UpdateDailyPoo, UpdateTotalHoney, UpdateTotalPoo } = require("./server/dataAccess");
+
 /**
  * A Bot for Slack!
  */
@@ -92,18 +94,29 @@ controller.on('bot_channel_join', function (bot, message) {
 
 controller.hears('send (.*)', ['direct_mention', 'mention', 'direct_message'], function(bot, message) {
     let item = message.match[1].split(" ");
-    console.log(item);
+    
     if ((item[1].indexOf("<@") === 0) && (item[1].lastIndexOf(">") === (item[1].length - 1))) {
+        let user = item[1].substring(2, item[1].length - 1);
+        
         switch (item[0]) {
+            //  Updates the honey sent between users.
             case "honey":
             case ":honey_pot:":
                 bot.reply(message, `Pooh sent :honey_pot: to ${item[1]}`);
+                UpdateDailyHoney(message.user);
+                UpdateTotalHoney(user);
                 break;
+
+            //  Updates the poo sent between users
             case "poo":
             case "poop":
             case ":poop:":
                 bot.reply(message, `Pooh sent :poop: to ${item[1]}`);
+                UpdateDailyPoo(message.user);
+                UpdateTotalPoo(user);
                 break;
+
+            //  Pooh doesn't know what to do
             default:
                 bot.reply(message, `Pooh doesn't know how to send ${item[0]} to ${item[1]}`);
         }
