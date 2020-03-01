@@ -102,7 +102,8 @@ controller.hears('send (.*)', ['direct_mention', 'mention', 'direct_message'], f
             //  Updates the honey sent between users.
             case "honey":
             case ":honey_pot:":
-                bot.reply(message, `Pooh sent :honey_pot: to ${item[1]}`);
+            case ":poohhoney:":
+                bot.reply(message, `Pooh sent :poohhoney: to ${item[1]}`);
                 UpdateDailyHoney(message.user);
                 UpdateTotalHoney(user);
                 break;
@@ -111,7 +112,8 @@ controller.hears('send (.*)', ['direct_mention', 'mention', 'direct_message'], f
             case "poo":
             case "poop":
             case ":poop:":
-                bot.reply(message, `Pooh sent :poop: to ${item[1]}`);
+            case ":poohpoop:":
+                bot.reply(message, `Pooh sent :poohpoop: to ${item[1]}`);
                 UpdateDailyPoo(message.user);
                 UpdateTotalPoo(user);
                 break;
