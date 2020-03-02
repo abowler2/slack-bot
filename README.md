@@ -7,6 +7,7 @@ Team Members:
 * Chris - Frontend
 * Rebecca - Backend
 * Luis - Frontend
+* Phil - Research
 * April - Project/Git Manager
 * James - Backend
 * Thomas - Database
@@ -38,6 +39,7 @@ Authors:
 * SirHexxus
 * PhillipLaub
 * thnlsn
+* homr0
 
 
 ## Lincense
